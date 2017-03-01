@@ -11,7 +11,7 @@ alter user phpuser default tablespace users temporary tablespace temp account un
 --Create user owner security info about the application
 drop user php_sec_admin cascade;
 create user php_sec_admin identified by welcome;
-alter user php_sec_admin default table system temporary tablespace temp account unlock;
+alter user php_sec_admin default tablespace system temporary tablespace temp account unlock;
 grant create procedure, create session, create table, resource, select any dictionary to php_sec_admin;
 
 connect phpuser/welcome;
@@ -41,6 +41,4 @@ create table php_authentication
 insert into php_authentication values('mirana','tiger');
 insert into php_authentication values('luna','leopard');
 commit;
-great select on php_authentication to phpuser;
-
-
+grant select on php_authentication to phpuser;
